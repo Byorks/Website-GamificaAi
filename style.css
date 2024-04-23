@@ -17,6 +17,12 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+/* Altera a forma que o scroll de link vai ate onde solicitado */
+html {
+    scroll-behavior: smooth;
+}
+
 /* Para selecionar Tags apenas escrever tag| para selecioanar classes .nomedaclasse*/
 .container-grid{
     /* Pode ser 80vw*/
@@ -48,6 +54,9 @@ header {
     height: 165px;
 }
 
+header button{
+    display: none;
+}
 header img {
     width: 234px;
 }
@@ -83,7 +92,7 @@ header .container-grid{
 
 .conteudo-banner{
     height: calc(100vh - 280px);
-    display: flex; 
+    display: flex;
     align-items: center;
 }
 
@@ -93,6 +102,45 @@ header .container-grid{
     font-size: 32px;
     
 }
+/* Criação de animação, caixa vai se abrindo em largura*/
+.conteudo-banner span {
+    display: block;
+
+    /* Dita que o que estiver saindo da caixa, ficará escondido */
+    overflow: hidden;
+
+    border-right: 6px solid var(--laranja-famifica);
+    /* Normaliza o tamanho da caixa para pegar apenas em uma caixa */
+    white-space: nowrap;
+
+    animation: 
+        digitando 2s steps(40, end),
+        cursor 0.75s  step-end infinite
+    ;
+}
+
+@keyframes digitando {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes cursor {
+    /* Começa e termina transparente */
+    from, 
+    to {
+        border-color: transparent;  
+    }
+    /* No meio fica laranja */
+    50% {
+        border-color: var(--laranja-famifica);
+    }
+}
+
 
 #sobre {
     height: 800px;
@@ -152,6 +200,9 @@ h2{
 
     /* Se colocar < 60% ele vai arredondar mais. */
     border-radius: 4px;
+
+    /* A partir de um site pegamos o código de sombra de caixa */
+    box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.75);
 }
 
 .cards img{
@@ -165,6 +216,7 @@ h2{
     font-family: 'Montserrat';
     font-size: 16px;
     color: white;
+    text-align: left;
     /* Espaçamento entre os itens em relação a borda, tipo uma margem interna */
     padding: 7%;
 }
@@ -195,3 +247,462 @@ h2{
     background-color: #ad4929;
     /*transform: rotate(-20deg)*/
 }
+
+#portfolio {
+    height: 250px;
+
+    background-image: url(img/bonecos.png);
+    background-size: 250px;
+    background-attachment: fixed;
+    
+    /* Com essa propriedade, definimos ele como a referencia para todos os filhos dele*/
+    position: relative;
+
+    margin-bottom: 120px;
+
+}
+
+#portfolio .container-grid{
+    /* A altura tem que ser o total do container pai para centralizar nele*/
+    height: 100%;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;    
+}
+
+.filtro {
+    width: 100%;
+    height: 100%;
+    
+    background-color: #47208bc2;
+    
+    /* Usamos apenas quando queremos sobropor alguma coisa, deixar o header em cima. Porque a responsividade é ruim. */
+    position: absolute;
+    /* Posiciona em relação a pagina principal, topo de tudo | Estamos utilizando ele para definir as posições das camadas, sem position absolute não é possível */
+    top: 0;
+    left: 0;
+}
+
+#portfolio a {
+    /* Ajusta a box do texto para ficar ao redor apenas do que foi escrito, isso acontece com tags a*/
+    width: fit-content;
+
+    color: white;
+    
+    font-family: 'Anta';
+    font-size: 28px;
+    
+    /* Para organizarmos as camadas, usamos o z-index, ele vai descer as camadas*/
+    z-index: 1;
+
+    transition: 200ms;
+
+}
+
+#portfolio a:hover{
+    /* O mesmo que 5% de scala*/
+    transform: scale(1.05);
+    transition: 200ms;
+}
+
+#contato {
+    text-align: center;
+    padding-bottom: 100px;
+    margin-bottom: 100px;
+    
+}
+
+#contato h2 {
+    margin-bottom: 70px;
+}
+
+#contato form {
+    width: 50%;
+    
+    margin: 0 auto;
+    padding: 60px 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    border-radius: 80px;
+    background-color: var(--roxo-gamifica);
+
+    color: white;
+    font-family: "Montserrat";
+    font-size: 17px;
+
+}
+
+.campo {
+    width: 60%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    text-align: left;
+
+    margin-bottom: 50px;
+}
+
+.campo-descricao{
+    width: 60%;
+
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    margin-bottom: 30px;
+}
+
+.campo input{
+    height: 40px;
+
+    color: white;
+    background-color: #351868;
+
+    border: none;
+    border-radius: 4px;
+
+    /* Espaçamento entre a caixa e o texto, serve apenas para a primeira linha*/
+    text-indent: 10px;
+
+    /* Tira a linha branca ao selecionar o campo */
+    outline:none;
+}
+
+.campo-descricao textarea {
+    color: white;
+    background-color: #351868;
+
+    border: none;
+    border-radius: 4px;
+
+    /* Espaçamento para varias linhas*/
+    padding: 10px;
+
+    /* Tira a possíbildade de redimensionamento da caixa do formulário*/
+    resize: none;
+    outline: none;
+}
+
+/*A virgula diz que vai servir para dois seletores diferentes */
+.campo label, .campo-descricao label{
+    margin-bottom: 15px;
+}
+
+/* Altera a font do texto dentro do campo */
+.campo input, .campo-descricao textarea{
+    font-family: "Montserrat";
+    font-size: 17px;
+}
+
+/* Altera a cor da font dentro do campo, com id do campo | :: é o ID do For */
+.campo input::placeholder, .campo-descricao textarea::placeholder {
+    color: #a0a0a0;
+}
+
+/* Pseudoclasse - Focus, igual o Hover*/
+.campo input:focus, .campo-descricao textarea:focus{
+    outline: 2px solid var(--laranja-famifica);
+}
+
+
+
+#contato form button {
+    height: 40px;
+    width: 60%;
+
+    background-color:var(--laranja-famifica);   
+    color: white;
+    border-radius: 4px;
+    border: none;
+
+    font-size: 17px;
+    font-family: "Montserrat";
+    font-weight: 700; /* Bold */
+
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    transition: background-color 500ms;
+}
+
+#contato form button:hover {
+    background-color: #ad4929;
+
+    transition: 200ms;
+}
+
+footer {
+    height: 290px;
+
+    background-color: var(--roxo-gamifica);
+}
+
+footer .container-grid{
+    /* Para alinhar ao centro, é necessario dizer que a altura está relacionada ao container pai os 290px linha 395 */
+    height: 100%;
+    display: flex;
+
+    /* Justify é na horizontal | Align é na vertical */
+    justify-content: space-between;
+    align-items: center;
+}
+
+.redes-sociais {
+    height: 50%;
+    
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.redes-sociais p{
+    color: white;
+    font-family: 'Anta';
+    font-size: 24px;
+}
+
+.icones-redes {
+    width: 240px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.icones-redes a{
+    color: white;
+    transition: color 300ms;
+}
+
+.icones-redes a:hover{
+    color: var(--laranja-famifica)
+}
+
+/* Responsividade */
+/* Quando a tela tiver até 1300px ela aplicará essas especificações */
+@media screen and (max-width: 1300px) {
+    header {
+        position: relative;
+    }
+    
+    header button{
+        width: 50px;
+        
+        /* Retira o display none que colocamos lá em cima no header */
+        display: unset;
+
+        background: none;
+        border: none;
+    }
+    header svg {
+        fill: white;
+    }
+    /* 
+        Tudo junto ele procura um elemento nav com a classe menu;
+        Separado ele prucura dentro de nav um elemento com classe menu.
+    */
+    nav.menu {
+        height: 500px;
+        width: 350px;
+
+        padding: 0px 30px;
+
+        flex-direction: column;
+        justify-content: space-around;
+
+        background-color: #000000b5;
+
+        position: absolute;
+        right: 0px;
+        /* Depois de verificar a altura do header, descontamos a altura dele, para ajustar */
+        top: 165px;
+    }
+
+    #sobre {
+        /* A porcentagem depende de outro elemento  */
+        padding: 100px 15%;
+    }
+
+    .cards{
+        height: 320px;
+        width: 200px;
+    }
+
+    #contato form {
+        width: 75%;
+    }
+}
+@media screen and (max-width: 1080px) {
+    .container-cards{
+        /* Distribui os cards caso não tenham espaço na horizontal */
+        flex-wrap: wrap;
+    }
+
+    .cards  {
+        height: 400px;
+        
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: 40%;
+     }
+
+     footer{
+        height: unset;
+     }
+     
+     footer .container-grid{
+        padding: 80px;
+        flex-direction: column;
+     }
+     footer img{
+        margin-bottom: 100px;
+     }
+     footer p {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 40px;
+     }
+
+     .redes-sociais{
+        align-items: center;
+     }
+}
+@media screen and (max-width: 800px){
+    .cards{
+        flex-basis: 45%;
+    }
+
+}
+
+@media screen and (max-width: 700px){
+    #sobre {
+        height: unset;
+        margin-bottom: 40px;
+    }
+
+    #sobre h2 {
+        margin-bottom: 50px;
+    }
+    #sobre p {
+        margin-bottom: 30px;
+    }
+
+    #cases,
+    #contato {
+        margin-bottom: unset;
+    }
+
+    #portfolio a {
+        width: 100%;
+        text-align: center;
+    }
+
+    .campo,
+    .campo-descricao,
+    #contato form button {
+        width: 75%;
+    }
+}
+
+@media screen and (max-width: 520px){
+    .container-grid{
+        width: 90%;
+    }
+
+    header img{
+        width: 200px;
+    }
+    .banner{
+        background-size: cover;
+    }
+
+    .conteudo-banner P{
+        font-size: 24px;
+    }
+    
+    nav.menu{
+        width: 100%;
+
+        display: none;
+    }
+
+    #sobre {
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+
+    #sobre p {
+        width: 90%;
+        margin: 0 auto;
+        margin-bottom: 20px;
+    }
+
+    #cases.container-grid {
+        width: 100%;
+        margin: unset;
+    }
+
+    .container-cards{
+        /* Como fazer um carrosel, sem ser carrosel */
+        flex-wrap: nowrap;
+        gap: 40px;
+
+        overflow-x: auto;
+    }
+
+    .cards{
+        width: 280px;
+
+        flex-basis: unset;
+    }
+
+    /* Com base na estrutura HTML dizemos, o primeiro card ficara a 30px da esquerda e o ultimo a 30px da direita */
+    .cards:first-child{
+        margin-left: 30px;
+    }
+
+    .cards:last-child{
+        margin-right: 30px;
+    }
+    #portfolio{
+        margin-bottom: 0px;
+    }
+
+    #contato {
+        padding-top: 150px;
+
+        background-color: var(--roxo-gamifica);
+        color: white;
+
+    }
+    #contato h2 {
+        margin-bottom: 0px;
+
+    }
+
+    #contato form{
+        width: 100%;
+        border-radius: 0;
+    }
+    }
+    @media screen and (max-width: 400px){
+        header img{
+            width: 160px;
+        }
+
+        header svg {
+            width: 40px;
+        }
+        
+        footer img {
+            width: 200px;
+        }
+         }
+
