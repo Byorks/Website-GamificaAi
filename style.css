@@ -91,6 +91,7 @@ header .container-grid{
 }
 
 .conteudo-banner{
+    /* A altura está subitraindo o tamanho do header - 280px */
     height: calc(100vh - 280px);
     display: flex;
     align-items: center;
@@ -484,6 +485,12 @@ footer .container-grid{
 .icones-redes a:hover{
     color: var(--laranja-famifica)
 }
+
+/* Classe para deixar o menu esconndido*/
+.menu-fechado {
+    display: none;
+}
+
 
 /* Responsividade */
 /* Quando a tela tiver até 1300px ela aplicará essas especificações */
