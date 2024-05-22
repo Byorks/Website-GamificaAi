@@ -44,10 +44,49 @@ html {
     /* vw = viewport e a porcentagem da LARGURA da tela */
     height: 100vh;
     /* atalho - ctrl + espaço para selecionar a imagem com mais facilidade. */
-    background-image: linear-gradient(90deg, rgba(53, 24, 104, 1) 0%, rgba(53, 24, 104, 0.8) 100%), url(img/bg-room.png);
     background-repeat: no-repeat;
     /* atalho - bgp */
     background-position: 165% 40%;
+
+    position: relative;
+}
+
+.primeiro-banner {
+    background-image: linear-gradient(90deg, rgba(53, 24, 104, 1) 0%, rgba(53, 24, 104, 0.8) 100%), url(img/bg-room.png);
+}
+
+.segundo-banner {
+    background-image: linear-gradient(90deg, rgba(24, 104, 36, 1) 0%, rgba(24, 104, 36, 0.8) 100%), url(img/bg-room.png);
+}
+
+.terceiro-banner {
+    background-image: linear-gradient(90deg, rgba(104, 24, 48, 1) 0%, rgba(53, 24, 104, 0.8) 100%), url(img/bg-room.png);
+}
+
+/* Virgula para selecionar dois elementos */
+#botao-voltar, #botao-proximo{
+    width: 30px;
+
+    /* Por padrão ele coloca um bg branco, e um borda, assim com none, a retiramos */
+    background: none;
+    border: none;
+
+    cursor: pointer;
+
+    position:absolute
+
+}
+
+#botao-voltar svg, #botao-proximo svg {
+    /* preenche o svg com a cor selecionada*/
+    fill: #ffffff76;
+}
+
+#botao-voltar{
+    left: 4%;
+}
+#botao-proximo{
+    right: 4%;
 }
 
 header {
@@ -640,7 +679,6 @@ footer .container-grid{
     nav.menu{
         width: 100%;
 
-        display: none;
     }
 
     #sobre {
