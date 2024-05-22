@@ -491,6 +491,9 @@ footer .container-grid{
     display: none;
 }
 
+#icone-barras {
+    display: none;
+}
 
 /* Responsividade */
 /* Quando a tela tiver até 1300px ela aplicará essas especificações */
