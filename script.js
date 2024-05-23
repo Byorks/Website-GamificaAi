@@ -35,6 +35,11 @@ function abreFechaMenu(){
     }
 }
 
+// if (window.innerWidth < 1300) {
+//     menu.classList.add("menu-fechado")
+    
+// }
+
 oneresize = () => {
      // Abrir o menu - tirar a classe menu-fechado
      menu.classList.remove("menu-fechado");
@@ -68,11 +73,40 @@ function mostrarProximoSlide() {
     // Remover o slide anterior
     banner.classList.remove(slides[slideAtual]);
     
-    // Somar 1 a var slideAtual
-    slideAtual++;
+    if(slideAtual < 2) {
+        // Somar 1 a var slideAtual
+        slideAtual++;
+    }else{
+        // Voltar para o primeiro banner
+        slideAtual = 0;
+    }
 
     // Mostra slide de acordo com o slide atual
     banner.classList.add(slides[slideAtual]);
 }
 
+function mostrarSlideAnterior() {
+    // Remover o slide anterior
+    banner.classList.remove(slides[slideAtual]);
 
+    if(slideAtual > 0) {
+        // Subtrair 1 na variável slideAtual
+        slideAtual--;
+    }else{
+        slideAtual = 2;
+    }
+
+    // Mostrar slide de acordo com o slide Atual
+    banner.classList.add(slides[slideAtual]);
+}
+
+function selecionarSlide(indiceSlide) {
+    // Remove o slide atual
+    banner.classList.remove(slides[slideAtual]);
+
+    // Atualiza a variavel com o indice de slide selecionado
+    slideAtual = indiceSlide;
+
+    // Mostra o slide selecionado a salvo na variavel slideAtual
+    banner.classList.add(slides[slideAtual]);
+}
