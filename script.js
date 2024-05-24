@@ -110,3 +110,34 @@ function selecionarSlide(indiceSlide) {
     // Mostra o slide selecionado a salvo na variavel slideAtual
     banner.classList.add(slides[slideAtual]);
 }
+
+
+// Carregamento dinâmico dos cases
+let listaCases = [
+    
+]
+
+
+// Código usado para trazer os cards de forma dinamica 
+function renderizarCases() {
+    // Encontrar o elemento para inserir os cards
+    let containerCards = document.querySelector(".container-cards");
+
+    //Variável para guardar o html dos cases montados
+    let template = ""
+
+    // Para cada case da listaCases
+    listaCases.forEach(cardCases => {
+        // Montar o hmtl do card, passando os atriubutos do case
+        template += ` <div class="cards">
+        <img src=${ cardCases.imagem } alt="">
+        <p>${ cardCases.descricao }</p>
+        <button>Ver mais</button>
+    </div>`
+
+    })
+
+
+    // Inserir hmtl dos cases montados no elemento cantainer cards
+    containerCards.innerHTML = template;
+}   
