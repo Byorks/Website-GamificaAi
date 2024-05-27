@@ -19,7 +19,7 @@
 
 <!-- Alt+Shift+F - Vai organizar o código -->
 
-<body>
+<body onload ="carregarCases()">
     <div class="banner">
         <header>
             <div class="container-grid">
@@ -101,7 +101,7 @@
 
 <section id="contato">
     <h2>Contate-nos</h2>
-    <form>
+    <form onsubmit="solicitarOrcamento(event)">
         <div class="campo">
             <!-- For direciona para qual campo esta sendo utilizado, assim conseguimos clicar no nome do campo e selecionar o campo -->
             <label for="campo-nome">Qual é o seu nome?</label>

@@ -1,23 +1,52 @@
 {
-    "cases": [
-        {
-            "imagem": "https://unsplash.it/640/400?image=40",
-            "descricao": "Uma empresa de tecnologia lança um desafio de gamificação onde os funcionarios devem propor e implementar ideias inovadoras."
-        },
-    
-        {
-            "imagem": "https://unsplash.it/640/400?image=250",
-            "descricao": "Uma empresa de consultoria cria uma narrativa interativa de gamificação para seu programa de treinamento."
-        },
-    
-        {
-            "imagem": "https://unsplash.it/640/400?image=10",
-            "descricao": "Uma empresa de vendas implementa uma competição gamificada entre equipes que competem pelo topo do ranking"
-        },
-    
-        {
-            "imagem": "https://unsplash.it/640/400?image=100",
-            "descricao": "Uma empresa de saúde promove o bem-estar dos funcionários através de um desafio de gamificação de condicionamento físico"
-        }
-    ]
+  "cases": [
+    {
+      "imagem": "https://unsplash.it/640/400?image=40",
+      "descricao": "Uma empresa de tecnologia lança um desafio de gamificação onde os funcionarios devem propor e implementar ideias inovadoras."
+    },
+    {
+      "imagem": "https://unsplash.it/640/400?image=250",
+      "descricao": "Uma empresa de consultoria cria uma narrativa interativa de gamificação para seu programa de treinamento."
+    },
+    {
+      "imagem": "https://unsplash.it/640/400?image=10",
+      "descricao": "Uma empresa de vendas implementa uma competição gamificada entre equipes que competem pelo topo do ranking"
+    },
+    {
+      "imagem": "https://unsplash.it/640/400?image=100",
+      "descricao": "Uma empresa de saúde promove o bem-estar dos funcionários através de um desafio de gamificação de condicionamento físico"
+    }
+  ],
+  "solicitacoes": [
+    {
+      "id": "4db3",
+      "nome": "thiagooo",
+      "email": "thiago@email.com",
+      "descricao": "Falta de produtividade e teclados decentes"
+    },
+    {
+      "id": "6055",
+      "nome": "bbb",
+      "email": "b@email.com",
+      "descricao": "bbbbbbb"
+    },
+    {
+      "id": "9c88",
+      "nome": "Vanessa",
+      "email": "vanessa@email.com",
+      "descricao": "Aprender mais sobre API"
+    },
+    {
+      "id": "4f4d",
+      "nome": "Tester",
+      "email": "test@email.com",
+      "descricao": "Testar nova funcionalidade de enviar dados pelo form"
+    },
+    {
+      "id": "77c0",
+      "nome": "Teste2",
+      "email": "teste@email.com",
+      "descricao": "teste2 ✌️😊"
+    }
+  ]
 }

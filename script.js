@@ -141,3 +141,66 @@ function renderizarCases() {
     // Inserir hmtl dos cases montados no elemento cantainer cards
     containerCards.innerHTML = template;
 }   
+
+// Essa função carregará os arquivos da API
+function carregarCases() {
+    // Método HTTP Get = Read/Leitura = server para mostrar um item ou uma lista de itens
+    // endpoint
+    fetch("http://localhost:3000/cases")
+    //Deserialization - Desserializalção - converteu para uma forma que entendemos
+    .then ( (resposta) => resposta.json() )
+    .then ( (dadosTratados ) => {
+        console.log(dadosTratados)
+        listaCases = dadosTratados;
+        renderizarCases();
+    })
+}
+
+function solicitarOrcamento (event) {
+    // Pegar os valores dos inputs
+    let valorNome = document.getElementById("campo-nome").value;
+    let valorEmail = document.getElementById("campo-email").value;
+    let valorDescricao = document.getElementById("campo-texto").value;
+
+    console.log(valorNome, valorEmail, valorDescricao)
+
+    // Organizar os valores em um objeto
+    let dadosForm = {
+        nome: valorNome,
+        email: valorEmail,
+        descricao: valorDescricao
+    }
+
+    console.log(dadosForm);
+
+    // Enviar a requisição para a API
+    // Método HTTP POST - Creat/Criar -> Cadastrar um novo registro (solicitacao)
+    fetch("http://localhost:3000/solicitacoes", { 
+        method: "POST", 
+        headers: {
+            "Content-Type": "application/json"
+        },
+        // Tranforma em um tipo de texto que o json entenda, o inverso da  desserialização 
+        body: JSON.stringify(dadosForm)
+    })
+    // CASO SUCESSO
+    .then(resposta => {
+        console.log(resposta);
+        // Limpar os inputs
+        document.querySelector("#contato form").reset();
+
+        // Mostrar um alert de sucesso
+        alert("Solicitação enviada com sucesso!!! ✌️(●'◡'●)")
+
+
+    })
+    // CASO ERRO
+    .catch(erro => {
+        console.log(erro);
+        // Mostrar alert com msg de erro
+        alert("Erro na requisicao 😥(っ °Д °;)っ")
+    })
+    
+    // Vai previnir que ao enviar no form ele de refresh na pagína 
+    event.preventDefault();
+}
