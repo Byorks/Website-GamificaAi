@@ -31,7 +31,7 @@ function abreFechaMenu(){
         iconeX.style.display = "none";
 
         // Esconder o icone do barras
-        iconeBarras.style.display = "inLine";
+        iconeBarras.style.display = "inLine";   
     }
 }
 
