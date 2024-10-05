@@ -3,7 +3,6 @@ let menu =  document.getElementById("menu");
 let iconeBarras = document.getElementById("icone-barras");
 let iconeX = document.getElementById("icone-x");
 
-
 function abreFechaMenu(){
     // Menu fechado - tem a classe menu-fechado
     // Menu aberto - não tem a classe menu-fechado
@@ -35,11 +34,6 @@ function abreFechaMenu(){
     }
 }
 
-// if (window.innerWidth < 1300) {
-//     menu.classList.add("menu-fechado")
-    
-// }
-
 oneresize = () => {
      // Abrir o menu - tirar a classe menu-fechado
      menu.classList.remove("menu-fechado");
@@ -52,7 +46,6 @@ oneresize = () => {
 }
 
 // Carrossel
-
 let banner = document.querySelector(".banner");
 
 // let slide = [0, 1, 2]
@@ -113,13 +106,11 @@ function selecionarSlide(indiceSlide) {
 
 
 // Carregamento dinâmico dos cases
-let listaCases = [
-    
-]
-
+let listaCases = []
 
 // Código usado para trazer os cards de forma dinamica 
 function renderizarCases() {
+
     // Encontrar o elemento para inserir os cards
     let containerCards = document.querySelector(".container-cards");
 
@@ -136,7 +127,6 @@ function renderizarCases() {
     </div>`
 
     })
-
 
     // Inserir hmtl dos cases montados no elemento cantainer cards
     containerCards.innerHTML = template;
